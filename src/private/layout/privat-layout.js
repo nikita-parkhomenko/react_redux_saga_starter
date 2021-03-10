@@ -10,7 +10,7 @@ import Header from '../../components/header';
 const PrivatLayout = ({ children }) => (
     <>
         <Header />
-        <Container>
+        <Container className="mt-5">
             {children}
         </Container>
     </>
