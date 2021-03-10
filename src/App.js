@@ -1,9 +1,12 @@
 
+// local dependencies
+import Layout from './privat/layout/privat-layout';
+
 function App() {
   return (
-    <div className="App">
-      Starter
-    </div>
+    <Layout className="App">
+      <h1>Starter</h1>
+    </Layout>
   );
 }
 
