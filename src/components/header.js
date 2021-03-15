@@ -1,7 +1,10 @@
 
 // outsource dependencies
+import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
 import {Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, UncontrolledDropdown} from 'reactstrap';
+
+import {welcome} from '../constants/routes';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +14,18 @@ const Header = () => {
     return (
         <>
             <Navbar color="dark" dark expand="sm" fixed="top">
-                <NavbarBrand href="/" className="d-flex justify-content-between">
-                    <img
-                        alt="company logo"
-                        src="https://media-exp1.licdn.com/dms/image/C4E0BAQFCvE5py1YmEw/company-logo_200_200/0/1524059602944?e=1622073600&v=beta&t=AbLtckJXWKtZ7B3ZPh5TObmxHbsbwQqlI7AzquJFqrg"
-                        width="32"
-                        height="32"
-                        className="mr-2"
-                    />
-                    <h3 className="mb-0">Intelliceed</h3>
-                </NavbarBrand>
+                <Link to={welcome.link()}>
+                    <NavbarBrand tag="div" className="d-flex justify-content-between">
+                        <img
+                            alt="company logo"
+                            src="https://media-exp1.licdn.com/dms/image/C4E0BAQFCvE5py1YmEw/company-logo_200_200/0/1524059602944?e=1622073600&v=beta&t=AbLtckJXWKtZ7B3ZPh5TObmxHbsbwQqlI7AzquJFqrg"
+                            width="32"
+                            height="32"
+                            className="mr-2"
+                        />
+                        <h3 className="mb-0">Intelliceed</h3>
+                    </NavbarBrand>
+                </Link>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
