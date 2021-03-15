@@ -8,9 +8,9 @@ import {Redirect, Route, Switch} from 'react-router';
 
 // local dependencies
 import './index.css';
-import {LAYOUT_PUBLIC, LAYOUT_PRIVATE, logIn} from './constants/routes';
 import PublicLayout from './public/index';
 import PrivateLayout from './private/index';
+import {LAYOUT_PUBLIC, LAYOUT_PRIVATE, logIn} from './constants/routes';
 
 const App = () => {
     // need to initialize app
