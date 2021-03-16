@@ -2,9 +2,9 @@
 // outsource dependencies
 import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
-import {Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, UncontrolledDropdown} from 'reactstrap';
+import {Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavLink, UncontrolledDropdown} from 'reactstrap';
 
-import {welcome} from '../constants/routes';
+import {welcome, employees, projects} from '../constants/routes';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +29,12 @@ const Header = () => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Employees</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">Projects</NavLink>
-                        </NavItem>
+                        <Link to={employees.link()}>
+                            <NavLink tag="span">Employees</NavLink>
+                        </Link>
+                        <Link to={projects.link()}>
+                            <NavLink tag="span">Projects</NavLink>
+                        </Link>
                     </Nav>
                     <UncontrolledDropdown  className="ml-auto" navbar>
                         <DropdownToggle nav caret>

@@ -18,3 +18,8 @@ export const employees = {
     path: `${LAYOUT_PRIVATE}/employees`,
     link: () => `${LAYOUT_PRIVATE}/employees`,
 }
+
+export const projects = {
+    path: `${LAYOUT_PRIVATE}/projects`,
+    link: () => `${LAYOUT_PRIVATE}/projects`,
+}
