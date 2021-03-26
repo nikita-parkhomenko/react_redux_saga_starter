@@ -4,11 +4,10 @@ import React from 'react';
 import {Switch, Route, Redirect} from 'react-router';
 
 // local dependencies
+import User from './user/user';
 import Welcome from './welcome/welcome';
-import Projects from './projects/projects';
 import Layout from './layout/privat-layout';
-import Employees from './employees/employees';
-import {employees, welcome, projects} from '../constants/routes';
+import {USER, WELCOME} from '../constants/routes';
 
 const PrivateLayout = () => {
     // here need to add check if user is authenticated
@@ -16,12 +15,11 @@ const PrivateLayout = () => {
     return (
         <Layout>
             <Switch>
-                <Route path={welcome.path}  component={Welcome}/>
+                <Route path={WELCOME.path}  component={Welcome}/>
 
-                <Route path={employees.path} component={Employees}/>
-                <Route path={projects.path} component={Projects}/>
+                <Route path={USER.path} component={User}/>
                 {/* if no path match */}
-                <Redirect to={welcome.link()} />
+                <Redirect to={WELCOME.link()} />
             </Switch>
         </Layout>
     )

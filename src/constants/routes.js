@@ -3,23 +3,18 @@ export const LAYOUT_PUBLIC = '/public';
 export const LAYOUT_PRIVATE = '/private';
 
 // public routes
-export const logIn = {
-    path: '/log-in',
+export const LOG_IN = {
+    path: `${LAYOUT_PUBLIC}/log-in`,
     link: () => `${LAYOUT_PUBLIC}/log-in`,
 }
 
 // private routes
-export const welcome = {
+export const WELCOME = {
     path: `${LAYOUT_PRIVATE}/welcome`,
     link: () => `${LAYOUT_PRIVATE}/welcome`,
 }
 
-export const employees = {
-    path: `${LAYOUT_PRIVATE}/employees`,
-    link: () => `${LAYOUT_PRIVATE}/employees`,
-}
-
-export const projects = {
-    path: `${LAYOUT_PRIVATE}/projects`,
-    link: () => `${LAYOUT_PRIVATE}/projects`,
+export const USER = {
+    path: `${LAYOUT_PRIVATE}/user`,
+    link: () => `${LAYOUT_PRIVATE}/user`,
 }

@@ -1,53 +1,53 @@
 
 // outsource dependencies
+import _ from 'lodash';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
 import {Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavLink, UncontrolledDropdown} from 'reactstrap';
 
-import {welcome, employees, projects} from '../constants/routes';
+// local dependencies
+import logo from '../images/spacex-logo.svg';
+import {WELCOME, USER} from '../constants/routes';
 
-const Header = () => {
+const Header = ({ user }) => {
+    console.log(user);
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
     return (
         <>
-            <Navbar color="dark" dark expand="sm" fixed="top">
-                <Link to={welcome.link()}>
+            <Navbar style={{ height: 80 }} light expand="md" fixed="top" className="d-flex justify-content-between color_navbar">
+                <Link to={WELCOME.link()}>
                     <NavbarBrand tag="div" className="d-flex justify-content-between">
                         <img
                             alt="company logo"
-                            src="https://media-exp1.licdn.com/dms/image/C4E0BAQFCvE5py1YmEw/company-logo_200_200/0/1524059602944?e=1622073600&v=beta&t=AbLtckJXWKtZ7B3ZPh5TObmxHbsbwQqlI7AzquJFqrg"
-                            width="32"
-                            height="32"
-                            className="mr-2"
+                            src={logo}
+                            width="200"
+                            height="60"
                         />
-                        <h3 className="mb-0">Intelliceed</h3>
                     </NavbarBrand>
                 </Link>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
-                        <Link to={employees.link()}>
-                            <NavLink tag="span">Employees</NavLink>
-                        </Link>
-                        <Link to={projects.link()}>
-                            <NavLink tag="span">Projects</NavLink>
+                        <Link to={USER.link()}>
+                            <NavLink className="text-white" tag="span">User Cabinet</NavLink>
                         </Link>
                     </Nav>
                     <UncontrolledDropdown  className="ml-auto" navbar>
-                        <DropdownToggle nav caret>
-                            Hello, John Doe
+                        <DropdownToggle className="text-white" nav caret>
+                            <img
+                                alt="user"
+                                src={_.get(user, 'coverImage.url')}
+                                style={{ width: '60px', height: '60px' }}
+                                className="rounded-circle mr-2"
+                            />
+                            {_.get(user, 'name', 'no name')}
                         </DropdownToggle>
                         <DropdownMenu right>
-                            <DropdownItem>
-                                Option 1
-                            </DropdownItem>
-                            <DropdownItem>
-                                Option 2
-                            </DropdownItem>
-                            <DropdownItem divider />
+                            {/*<DropdownItem divider />*/}
                             <DropdownItem className="text-danger">
                                 Sign Out
                             </DropdownItem>
@@ -59,4 +59,8 @@ const Header = () => {
     );
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    user: state.appReducer.user,
+})
+
+export default connect(mapStateToProps, null)(Header);
