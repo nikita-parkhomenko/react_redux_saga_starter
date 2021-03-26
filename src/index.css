@@ -14,4 +14,10 @@ code {
 
 a:hover {
   text-decoration: none;
+  color: #000000;
+  transition: 0.6s all;
+}
+
+.color_navbar {
+  background-color: #663399;
 }
